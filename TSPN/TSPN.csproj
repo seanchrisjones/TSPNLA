@@ -1,0 +1,949 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3700778E-CBDA-46EC-9E00-934FEC946522}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSPN</RootNamespace>
+    <AssemblyName>TSPN</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\colors\color-07d2ed.css" />
+    <Content Include="css\colors\color-26a0c8.css" />
+    <Content Include="css\colors\color-2f8cea.css" />
+    <Content Include="css\colors\color-3dc054.css" />
+    <Content Include="css\colors\color-68bd29.css" />
+    <Content Include="css\colors\color-e38217.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\flaticon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="img\about\2.jpg" />
+    <Content Include="img\about\harmonic\01.png" />
+    <Content Include="img\about\profile-pic.jpg" />
+    <Content Include="img\arrow-down.svg" />
+    <Content Include="img\arrows.png" />
+    <Content Include="img\blog\banner.jpg" />
+    <Content Include="img\blog\featured01.jpg" />
+    <Content Include="img\blog\featured02.jpg" />
+    <Content Include="img\blog\featured03.jpg" />
+    <Content Include="img\blog\posts\post01.jpg" />
+    <Content Include="img\blog\posts\post02.jpg" />
+    <Content Include="img\blog\posts\post03.jpg" />
+    <Content Include="img\blog\posts\post04.jpg" />
+    <Content Include="img\blog\posts\post05.jpg" />
+    <Content Include="img\blog\posts\post06.jpg" />
+    <Content Include="img\blog\posts\post07.jpg" />
+    <Content Include="img\blog\slider\01.jpg" />
+    <Content Include="img\blog\slider\02.jpg" />
+    <Content Include="img\blog\slider\03.jpg" />
+    <Content Include="img\blog\slider\04.jpg" />
+    <Content Include="img\blog\thumbs\01.jpg" />
+    <Content Include="img\blog\thumbs\02.jpg" />
+    <Content Include="img\blog\thumbs\03.jpg" />
+    <Content Include="img\blog\thumbs\04.jpg" />
+    <Content Include="img\blog\thumbs\05.jpg" />
+    <Content Include="img\blog\thumbs\06.jpg" />
+    <Content Include="img\blog\thumbs\07.jpg" />
+    <Content Include="img\blog\thumbs\08.jpg" />
+    <Content Include="img\cart-dropdown\item01.jpg" />
+    <Content Include="img\cart-dropdown\item02.jpg" />
+    <Content Include="img\cart-dropdown\item03.jpg" />
+    <Content Include="img\cart-dropdown\item04.jpg" />
+    <Content Include="img\clients\1.jpg" />
+    <Content Include="img\demo\360x220.png" />
+    <Content Include="img\demo\360x280.png" />
+    <Content Include="img\demo\360x360.png" />
+    <Content Include="img\demo\3d-carousel\1.png" />
+    <Content Include="img\demo\3d-carousel\2.png" />
+    <Content Include="img\demo\3d-carousel\3.png" />
+    <Content Include="img\demo\3d-carousel\4.png" />
+    <Content Include="img\demo\3d-carousel\5.png" />
+    <Content Include="img\demo\64x64.png" />
+    <Content Include="img\demo\logo-carousel\1.png" />
+    <Content Include="img\demo\logo-carousel\2.png" />
+    <Content Include="img\demo\logo-carousel\3.png" />
+    <Content Include="img\demo\logo-carousel\4.png" />
+    <Content Include="img\demo\logo-carousel\5.png" />
+    <Content Include="img\demo\MS-logo.png" />
+    <Content Include="img\demo\owl-logo.png" />
+    <Content Include="img\demo\partial-view\1.png" />
+    <Content Include="img\demo\partial-view\2.png" />
+    <Content Include="img\demo\partial-view\3.png" />
+    <Content Include="img\demo\partial-view\4.png" />
+    <Content Include="img\demo\partial-view\5.png" />
+    <Content Include="img\demo\prod-showcase\01.png" />
+    <Content Include="img\demo\prod-showcase\02.png" />
+    <Content Include="img\demo\prod-showcase\03.png" />
+    <Content Include="img\demo\slider-with-thumbs\01.png" />
+    <Content Include="img\demo\slider-with-thumbs\02.png" />
+    <Content Include="img\demo\slider-with-thumbs\03.png" />
+    <Content Include="img\demo\slider-with-thumbs\th01.png" />
+    <Content Include="img\demo\slider-with-thumbs\th02.png" />
+    <Content Include="img\demo\slider-with-thumbs\th03.png" />
+    <Content Include="img\demo\slider\01.png" />
+    <Content Include="img\demo\slider\02.png" />
+    <Content Include="img\demo\slider\03.png" />
+    <Content Include="img\faq\banner.jpg" />
+    <Content Include="img\gallery\masonry\1.jpg" />
+    <Content Include="img\gallery\masonry\2.jpg" />
+    <Content Include="img\gallery\masonry\3.jpg" />
+    <Content Include="img\gallery\masonry\4.jpg" />
+    <Content Include="img\gallery\masonry\5.jpg" />
+    <Content Include="img\gallery\masonry\6.jpg" />
+    <Content Include="img\gallery\masonry\7.jpg" />
+    <Content Include="img\gallery\masonry\8.jpg" />
+    <Content Include="img\gallery\masonry\th_1.jpg" />
+    <Content Include="img\gallery\masonry\th_10.jpg" />
+    <Content Include="img\gallery\masonry\th_11.jpg" />
+    <Content Include="img\gallery\masonry\th_12.jpg" />
+    <Content Include="img\gallery\masonry\th_13.jpg" />
+    <Content Include="img\gallery\masonry\th_2.jpg" />
+    <Content Include="img\gallery\masonry\th_3.jpg" />
+    <Content Include="img\gallery\masonry\th_4.jpg" />
+    <Content Include="img\gallery\masonry\th_5.jpg" />
+    <Content Include="img\gallery\masonry\th_6.jpg" />
+    <Content Include="img\gallery\masonry\th_7.jpg" />
+    <Content Include="img\gallery\masonry\th_8.jpg" />
+    <Content Include="img\gallery\masonry\th_9.jpg" />
+    <Content Include="img\home\blog-screens\1.png" />
+    <Content Include="img\home\blog-screens\2.png" />
+    <Content Include="img\home\blog-screens\3.png" />
+    <Content Include="img\home\blog-screens\4.png" />
+    <Content Include="img\home\blog-screens\5.png" />
+    <Content Include="img\home\blog-screens\6.png" />
+    <Content Include="img\home\blog-screens\7.png" />
+    <Content Include="img\home\blog-screens\8.png" />
+    <Content Include="img\home\categories\cat01.jpg" />
+    <Content Include="img\home\categories\cat02.jpg" />
+    <Content Include="img\home\categories\cat03.jpg" />
+    <Content Include="img\home\categories\cat04.jpg" />
+    <Content Include="img\home\categories\cat05.jpg" />
+    <Content Include="img\home\categories\cat06.jpg" />
+    <Content Include="img\home\categories\cat07.jpg" />
+    <Content Include="img\home\categories\cat08.jpg" />
+    <Content Include="img\home\deals-tabs\01.jpg" />
+    <Content Include="img\home\deals-tabs\02.jpg" />
+    <Content Include="img\home\deals-tabs\03.jpg" />
+    <Content Include="img\home\features\icons.png" />
+    <Content Include="img\home\features\less.png" />
+    <Content Include="img\home\features\master.png" />
+    <Content Include="img\home\features\retina.png" />
+    <Content Include="img\home\hero\blog-corp.jpg" />
+    <Content Include="img\home\hero\court.jpg" />
+    <Content Include="img\home\hero\event.jpg" />
+    <Content Include="img\home\hero\fullscreen\01.jpg" />
+    <Content Include="img\home\hero\fullscreen\02.jpg" />
+    <Content Include="img\home\hero\fullscreen\03.jpg" />
+    <Content Include="img\home\hero\fullscreen\04.jpg" />
+    <Content Include="img\home\hero\fullscreen\05.jpg" />
+    <Content Include="img\home\hero\fullscreen\06.jpg" />
+    <Content Include="img\home\hero\landing.jpg" />
+    <Content Include="img\home\hero\parallax\layer1.png" />
+    <Content Include="img\home\hero\parallax\layer2.png" />
+    <Content Include="img\home\hero\parallax\layer3.png" />
+    <Content Include="img\home\hero\pattern.png" />
+    <Content Include="img\home\hero\real-estate.jpg" />
+    <Content Include="img\home\hero\shop-featured.jpg" />
+    <Content Include="img\home\hero\startup.jpg" />
+    <Content Include="img\home\home-screens\1.jpg" />
+    <Content Include="img\home\home-screens\10.jpg" />
+    <Content Include="img\home\home-screens\11.jpg" />
+    <Content Include="img\home\home-screens\12.jpg" />
+    <Content Include="img\home\home-screens\2.jpg" />
+    <Content Include="img\home\home-screens\3.jpg" />
+    <Content Include="img\home\home-screens\4.jpg" />
+    <Content Include="img\home\home-screens\5.jpg" />
+    <Content Include="img\home\home-screens\6.jpg" />
+    <Content Include="img\home\home-screens\7.jpg" />
+    <Content Include="img\home\home-screens\8.jpg" />
+    <Content Include="img\home\home-screens\9.jpg" />
+    <Content Include="img\home\image-tabs\01.jpg" />
+    <Content Include="img\home\image-tabs\02.jpg" />
+    <Content Include="img\home\image-tabs\03.jpg" />
+    <Content Include="img\home\image-tabs\04.jpg" />
+    <Content Include="img\home\image-tabs\05.jpg" />
+    <Content Include="img\home\image-tabs\06.jpg" />
+    <Content Include="img\home\image-tabs\07.jpg" />
+    <Content Include="img\home\image-tabs\08.jpg" />
+    <Content Include="img\home\image-tabs\th01.jpg" />
+    <Content Include="img\home\image-tabs\th02.jpg" />
+    <Content Include="img\home\image-tabs\th03.jpg" />
+    <Content Include="img\home\image-tabs\th04.jpg" />
+    <Content Include="img\home\image-tabs\th05.jpg" />
+    <Content Include="img\home\image-tabs\th06.jpg" />
+    <Content Include="img\home\image-tabs\th07.jpg" />
+    <Content Include="img\home\image-tabs\th08.jpg" />
+    <Content Include="img\home\landing-tabs\01.jpg" />
+    <Content Include="img\home\landing-tabs\02.jpg" />
+    <Content Include="img\home\landing-tabs\03.jpg" />
+    <Content Include="img\home\mobapp.jpg" />
+    <Content Include="img\home\mobile.png" />
+    <Content Include="img\home\pages\404.png" />
+    <Content Include="img\home\pages\500.png" />
+    <Content Include="img\home\pages\about-corp.png" />
+    <Content Include="img\home\pages\about-pers.png" />
+    <Content Include="img\home\pages\contacts.png" />
+    <Content Include="img\home\pages\event.png" />
+    <Content Include="img\home\pages\faq-tabs.png" />
+    <Content Include="img\home\pages\faq.png" />
+    <Content Include="img\home\pages\login.png" />
+    <Content Include="img\home\pages\project.png" />
+    <Content Include="img\home\pages\resume.png" />
+    <Content Include="img\home\pages\search-results.png" />
+    <Content Include="img\home\pages\search.png" />
+    <Content Include="img\home\pages\signup.png" />
+    <Content Include="img\home\pages\sitemap.png" />
+    <Content Include="img\home\pages\soon.png" />
+    <Content Include="img\home\pages\team-profile.png" />
+    <Content Include="img\home\pages\team.png" />
+    <Content Include="img\home\pages\under-constr.png" />
+    <Content Include="img\home\pages\user-account.png" />
+    <Content Include="img\home\partial-view-slider\1.jpg" />
+    <Content Include="img\home\partial-view-slider\2.jpg" />
+    <Content Include="img\home\partial-view-slider\3.jpg" />
+    <Content Include="img\home\partial-view-slider\4.jpg" />
+    <Content Include="img\home\partial-view-slider\5.jpg" />
+    <Content Include="img\home\qrcode.png" />
+    <Content Include="img\home\service-thumbs\th01.jpg" />
+    <Content Include="img\home\service-thumbs\th02.jpg" />
+    <Content Include="img\home\service-thumbs\th03.jpg" />
+    <Content Include="img\home\service-thumbs\th04.jpg" />
+    <Content Include="img\home\shop-categories\01.jpg" />
+    <Content Include="img\home\shop-categories\02.jpg" />
+    <Content Include="img\home\shop-categories\03.jpg" />
+    <Content Include="img\home\shop-categories\04.jpg" />
+    <Content Include="img\home\shop-featured-1.jpg" />
+    <Content Include="img\home\shop-featured-tabs\01.jpg" />
+    <Content Include="img\home\shop-featured-tabs\02.jpg" />
+    <Content Include="img\home\shop-featured-tabs\03.jpg" />
+    <Content Include="img\home\shop-featured-tabs\04.jpg" />
+    <Content Include="img\home\shop-screens\cart.png" />
+    <Content Include="img\home\shop-screens\checkout.png" />
+    <Content Include="img\home\shop-screens\grid-1.png" />
+    <Content Include="img\home\shop-screens\grid-2.png" />
+    <Content Include="img\home\shop-screens\list.png" />
+    <Content Include="img\home\shop-screens\purch-history.png" />
+    <Content Include="img\home\shop-screens\single.png" />
+    <Content Include="img\home\shop-screens\tracking.png" />
+    <Content Include="img\home\shop-showcase-slider\01.jpg" />
+    <Content Include="img\home\shop-showcase-slider\03.jpg" />
+    <Content Include="img\home\shop-showcase-slider\04.jpg" />
+    <Content Include="img\home\shop-showcase-slider\05.jpg" />
+    <Content Include="img\home\shop-showcase-slider\06.jpg" />
+    <Content Include="img\home\spa-banner.jpg" />
+    <Content Include="img\home\startup.jpg" />
+    <Content Include="img\home\update-banner.png" />
+    <Content Include="img\info-tiles\039be5\browser.png" />
+    <Content Include="img\info-tiles\039be5\browsers.png" />
+    <Content Include="img\info-tiles\039be5\cloud.png" />
+    <Content Include="img\info-tiles\039be5\cogs.png" />
+    <Content Include="img\info-tiles\039be5\idea.png" />
+    <Content Include="img\info-tiles\039be5\support.png" />
+    <Content Include="img\info-tiles\448956\browser.png" />
+    <Content Include="img\info-tiles\448956\browsers.png" />
+    <Content Include="img\info-tiles\448956\cloud.png" />
+    <Content Include="img\info-tiles\448956\cogs.png" />
+    <Content Include="img\info-tiles\448956\idea.png" />
+    <Content Include="img\info-tiles\448956\support.png" />
+    <Content Include="img\info-tiles\607d8b\browser.png" />
+    <Content Include="img\info-tiles\607d8b\browsers.png" />
+    <Content Include="img\info-tiles\607d8b\cloud.png" />
+    <Content Include="img\info-tiles\607d8b\cogs.png" />
+    <Content Include="img\info-tiles\607d8b\idea.png" />
+    <Content Include="img\info-tiles\607d8b\support.png" />
+    <Content Include="img\info-tiles\9456ba\browser.png" />
+    <Content Include="img\info-tiles\9456ba\browsers.png" />
+    <Content Include="img\info-tiles\9456ba\cloud.png" />
+    <Content Include="img\info-tiles\9456ba\cogs.png" />
+    <Content Include="img\info-tiles\9456ba\idea.png" />
+    <Content Include="img\info-tiles\9456ba\support.png" />
+    <Content Include="img\info-tiles\e74c3c\browser.png" />
+    <Content Include="img\info-tiles\e74c3c\browsers.png" />
+    <Content Include="img\info-tiles\e74c3c\cloud.png" />
+    <Content Include="img\info-tiles\e74c3c\cogs.png" />
+    <Content Include="img\info-tiles\e74c3c\idea.png" />
+    <Content Include="img\info-tiles\e74c3c\support.png" />
+    <Content Include="img\info-tiles\ff712c\browser.png" />
+    <Content Include="img\info-tiles\ff712c\browsers.png" />
+    <Content Include="img\info-tiles\ff712c\cloud.png" />
+    <Content Include="img\info-tiles\ff712c\cogs.png" />
+    <Content Include="img\info-tiles\ff712c\idea.png" />
+    <Content Include="img\info-tiles\ff712c\support.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\logo-white.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logos\1.png" />
+    <Content Include="img\logos\2.png" />
+    <Content Include="img\logos\3.png" />
+    <Content Include="img\logos\4.png" />
+    <Content Include="img\logos\5.png" />
+    <Content Include="img\logos\6.png" />
+    <Content Include="img\map-marker.png" />
+    <Content Include="img\megamenu\bestsell01.png" />
+    <Content Include="img\megamenu\bestsell02.png" />
+    <Content Include="img\megamenu\bestsell03.png" />
+    <Content Include="img\megamenu\big-banner.jpg" />
+    <Content Include="img\megamenu\blog-corporate.png" />
+    <Content Include="img\megamenu\blog-personal.png" />
+    <Content Include="img\megamenu\bonus\basketball.png" />
+    <Content Include="img\megamenu\bonus\football.png" />
+    <Content Include="img\megamenu\bonus\running.png" />
+    <Content Include="img\megamenu\bonus\soccer.png" />
+    <Content Include="img\megamenu\bonus\training.png" />
+    <Content Include="img\megamenu\business-law.png" />
+    <Content Include="img\megamenu\business-real-estate.png" />
+    <Content Include="img\megamenu\cat-banner.jpg" />
+    <Content Include="img\megamenu\cat01.png" />
+    <Content Include="img\megamenu\cat02.png" />
+    <Content Include="img\megamenu\cat03.png" />
+    <Content Include="img\megamenu\event.png" />
+    <Content Include="img\megamenu\landing.png" />
+    <Content Include="img\megamenu\portfolio-music.png" />
+    <Content Include="img\megamenu\portfolio-photo.png" />
+    <Content Include="img\megamenu\services.png" />
+    <Content Include="img\megamenu\shop-catalog.png" />
+    <Content Include="img\megamenu\shop-featured.png" />
+    <Content Include="img\megamenu\startup.png" />
+    <Content Include="img\ms-display\display.png" />
+    <Content Include="img\ms-display\flat-display.png" />
+    <Content Include="img\ms-display\skin.png" />
+    <Content Include="img\pages\404.png" />
+    <Content Include="img\pages\500.png" />
+    <Content Include="img\pages\about-corporate.png" />
+    <Content Include="img\pages\about-personal.png" />
+    <Content Include="img\pages\contacts.png" />
+    <Content Include="img\pages\event-schedule.png" />
+    <Content Include="img\pages\faq-standard.png" />
+    <Content Include="img\pages\faq-tabs.png" />
+    <Content Include="img\pages\login.png" />
+    <Content Include="img\pages\resume.png" />
+    <Content Include="img\pages\search-results.png" />
+    <Content Include="img\pages\search.png" />
+    <Content Include="img\pages\signup.png" />
+    <Content Include="img\pages\single-project.png" />
+    <Content Include="img\pages\sitemap.png" />
+    <Content Include="img\pages\team-member.png" />
+    <Content Include="img\pages\team.png" />
+    <Content Include="img\pages\under-constr.png" />
+    <Content Include="img\pages\user.png" />
+    <Content Include="img\patterns\pattern-1.png" />
+    <Content Include="img\patterns\pattern-2.png" />
+    <Content Include="img\patterns\pattern-3.png" />
+    <Content Include="img\patterns\pattern-4.png" />
+    <Content Include="img\patterns\pattern-5.png" />
+    <Content Include="img\patterns\pattern-6.png" />
+    <Content Include="img\paypal-btn.png" />
+    <Content Include="img\portfolio\01.jpg" />
+    <Content Include="img\portfolio\02.jpg" />
+    <Content Include="img\portfolio\03.jpg" />
+    <Content Include="img\portfolio\th01.jpg" />
+    <Content Include="img\portfolio\th02.jpg" />
+    <Content Include="img\portfolio\th03.jpg" />
+    <Content Include="img\portfolio\th04.jpg" />
+    <Content Include="img\quotes.png" />
+    <Content Include="img\shop\big-info-block.jpg" />
+    <Content Include="img\shop\cart\01.jpg" />
+    <Content Include="img\shop\cart\02.jpg" />
+    <Content Include="img\shop\cart\03.jpg" />
+    <Content Include="img\shop\catalog\01.jpg" />
+    <Content Include="img\shop\catalog\02.jpg" />
+    <Content Include="img\shop\catalog\03.jpg" />
+    <Content Include="img\shop\catalog\04.jpg" />
+    <Content Include="img\shop\catalog\05.jpg" />
+    <Content Include="img\shop\catalog\06.jpg" />
+    <Content Include="img\shop\catalog\07.jpg" />
+    <Content Include="img\shop\catalog\08.jpg" />
+    <Content Include="img\shop\catalog\09.jpg" />
+    <Content Include="img\shop\catalog\10.jpg" />
+    <Content Include="img\shop\catalog\11.jpg" />
+    <Content Include="img\shop\catalog\12.jpg" />
+    <Content Include="img\shop\catalog\13.jpg" />
+    <Content Include="img\shop\catalog\14.jpg" />
+    <Content Include="img\shop\catalog\15.jpg" />
+    <Content Include="img\shop\catalog\colors\th-1-1.jpg" />
+    <Content Include="img\shop\catalog\colors\th-1-2.jpg" />
+    <Content Include="img\shop\catalog\colors\th-1-3.jpg" />
+    <Content Include="img\shop\catalog\colors\th-2-1.jpg" />
+    <Content Include="img\shop\catalog\colors\th-2-2.jpg" />
+    <Content Include="img\shop\catalog\colors\th-2-3.jpg" />
+    <Content Include="img\shop\catalog\colors\th-3-1.jpg" />
+    <Content Include="img\shop\catalog\colors\th-3-2.jpg" />
+    <Content Include="img\shop\catalog\colors\th-3-3.jpg" />
+    <Content Include="img\shop\history\01.jpg" />
+    <Content Include="img\shop\history\02.jpg" />
+    <Content Include="img\shop\history\03.jpg" />
+    <Content Include="img\shop\info-block.jpg" />
+    <Content Include="img\shop\packages\01.jpg" />
+    <Content Include="img\shop\packages\02.jpg" />
+    <Content Include="img\shop\packages\03.jpg" />
+    <Content Include="img\shop\packages\04.jpg" />
+    <Content Include="img\shop\packages\05.jpg" />
+    <Content Include="img\shop\sidebar\th01.jpg" />
+    <Content Include="img\shop\sidebar\th02.jpg" />
+    <Content Include="img\shop\single\01.jpg" />
+    <Content Include="img\shop\single\02.jpg" />
+    <Content Include="img\shop\single\03.jpg" />
+    <Content Include="img\shop\single\th01.jpg" />
+    <Content Include="img\shop\single\th02.jpg" />
+    <Content Include="img\shop\single\th03.jpg" />
+    <Content Include="img\shop\tracking\01.jpg" />
+    <Content Include="img\shop\tracking\02.jpg" />
+    <Content Include="img\specialty-page\banner.jpg" />
+    <Content Include="img\team\davis.jpg" />
+    <Content Include="img\team\dirk.jpg" />
+    <Content Include="img\team\doe.jpg" />
+    <Content Include="img\team\founder01.jpg" />
+    <Content Include="img\team\founder02.jpg" />
+    <Content Include="img\team\president.jpg" />
+    <Content Include="img\team\profile-pick.jpg" />
+    <Content Include="img\team\roe.jpg" />
+    <Content Include="img\team\smith.jpg" />
+    <Content Include="img\team\treasurer.jpg" />
+    <Content Include="img\team\vice-president.jpg" />
+    <Content Include="img\user\avatar.jpg" />
+    <Content Include="img\user\user.jpg" />
+    <Content Include="js\libs\jquery-1.11.1.min.js" />
+    <Content Include="js\libs\jquery.easing.min.js" />
+    <Content Include="js\libs\modernizr.custom.js" />
+    <Content Include="js\plugins\bootstrap-datepicker.js" />
+    <Content Include="js\plugins\bootstrap.min.js" />
+    <Content Include="js\plugins\card.min.js" />
+    <Content Include="js\plugins\chart.min.js" />
+    <Content Include="js\plugins\foundation.min.js" />
+    <Content Include="js\plugins\icheck.min.js" />
+    <Content Include="js\plugins\isotope.min.js" />
+    <Content Include="js\plugins\jquery-numerator.js" />
+    <Content Include="js\plugins\jquery.countdown.min.js" />
+    <Content Include="js\plugins\jquery.easypiechart.min.js" />
+    <Content Include="js\plugins\jquery.nouislider.min.js" />
+    <Content Include="js\plugins\jquery.parallax.min.js" />
+    <Content Include="js\plugins\jquery.placeholder.js" />
+    <Content Include="js\plugins\jquery.stellar.min.js" />
+    <Content Include="js\plugins\jquery.validate.min.js" />
+    <Content Include="js\plugins\lightGallery.min.js" />
+    <Content Include="js\plugins\masterslider.min.js" />
+    <Content Include="js\plugins\owl.carousel.min.js" />
+    <Content Include="js\plugins\respond.js" />
+    <Content Include="js\plugins\smoothscroll.js" />
+    <Content Include="js\plugins\utilities.js" />
+    <Content Include="js\plugins\waypoints.min.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="masterslider\blank.gif" />
+    <Content Include="masterslider\skins\black-1\black-skin-1-retina.png" />
+    <Content Include="masterslider\skins\black-1\black-skin-1.png" />
+    <Content Include="masterslider\skins\black-1\style.css" />
+    <Content Include="masterslider\skins\black-2\black-skin-2-retina.png" />
+    <Content Include="masterslider\skins\black-2\black-skin-2.png" />
+    <Content Include="masterslider\skins\black-2\style.css" />
+    <Content Include="masterslider\skins\contrast\contrast-skin-retina.png" />
+    <Content Include="masterslider\skins\contrast\contrast-skin.png" />
+    <Content Include="masterslider\skins\contrast\style.css" />
+    <Content Include="masterslider\skins\default\light-skin-1-retina.png" />
+    <Content Include="masterslider\skins\default\light-skin-1.png" />
+    <Content Include="masterslider\skins\default\style.css" />
+    <Content Include="masterslider\skins\light-2\light-skin-2-retina.png" />
+    <Content Include="masterslider\skins\light-2\light-skin-2.png" />
+    <Content Include="masterslider\skins\light-2\style.css" />
+    <Content Include="masterslider\skins\light-3\light-skin-3-retina.png" />
+    <Content Include="masterslider\skins\light-3\light-skin-3.png" />
+    <Content Include="masterslider\skins\light-3\style.css" />
+    <Content Include="masterslider\skins\light-4\light-skin-4-retina.png" />
+    <Content Include="masterslider\skins\light-4\light-skin-4.png" />
+    <Content Include="masterslider\skins\light-4\style.css" />
+    <Content Include="masterslider\skins\light-5\light-skin-5-retina.png" />
+    <Content Include="masterslider\skins\light-5\light-skin-5.png" />
+    <Content Include="masterslider\skins\light-5\style.css" />
+    <Content Include="masterslider\skins\light-6\light-skin-6-retina.png" />
+    <Content Include="masterslider\skins\light-6\light-skin-6.png" />
+    <Content Include="masterslider\skins\light-6\style.css" />
+    <Content Include="masterslider\skins\metro\metro-skin-retina.png" />
+    <Content Include="masterslider\skins\metro\metro-skin.png" />
+    <Content Include="masterslider\skins\metro\style.css" />
+    <Content Include="masterslider\style\blank.gif" />
+    <Content Include="masterslider\style\grab.cur" />
+    <Content Include="masterslider\style\grab.png" />
+    <Content Include="masterslider\style\grabbing.cur" />
+    <Content Include="masterslider\style\grabbing.png" />
+    <Content Include="masterslider\style\light-skin-1-retina.png" />
+    <Content Include="masterslider\style\loading-1-dark.gif" />
+    <Content Include="masterslider\style\loading-1-light.gif" />
+    <Content Include="masterslider\style\loading-1.gif" />
+    <Content Include="masterslider\style\loading-2-dark.gif" />
+    <Content Include="masterslider\style\loading-2-light.gif" />
+    <Content Include="masterslider\style\loading-2.gif" />
+    <Content Include="masterslider\style\masterslider.css" />
+    <Content Include="masterslider\style\video-close-btn.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="css\colors\desktop.ini" />
+    <Content Include="css\desktop.ini" />
+    <Content Include="img\about\desktop.ini" />
+    <Content Include="img\about\harmonic\desktop.ini" />
+    <Content Include="img\blog\desktop.ini" />
+    <Content Include="img\blog\posts\desktop.ini" />
+    <Content Include="img\blog\slider\desktop.ini" />
+    <Content Include="img\blog\thumbs\desktop.ini" />
+    <Content Include="img\cart-dropdown\desktop.ini" />
+    <Content Include="img\clients\desktop.ini" />
+    <Content Include="img\demo\3d-carousel\desktop.ini" />
+    <Content Include="img\demo\desktop.ini" />
+    <Content Include="img\demo\logo-carousel\desktop.ini" />
+    <Content Include="img\demo\partial-view\desktop.ini" />
+    <Content Include="img\demo\prod-showcase\desktop.ini" />
+    <Content Include="img\demo\slider-with-thumbs\desktop.ini" />
+    <Content Include="img\demo\slider\desktop.ini" />
+    <Content Include="img\desktop.ini" />
+    <Content Include="img\faq\desktop.ini" />
+    <Content Include="img\gallery\desktop.ini" />
+    <Content Include="img\gallery\masonry\desktop.ini" />
+    <Content Include="img\home\blog-screens\desktop.ini" />
+    <Content Include="img\home\categories\desktop.ini" />
+    <Content Include="img\home\deals-tabs\desktop.ini" />
+    <Content Include="img\home\desktop.ini" />
+    <Content Include="img\home\features\desktop.ini" />
+    <Content Include="img\home\hero\desktop.ini" />
+    <Content Include="img\home\hero\fullscreen\desktop.ini" />
+    <Content Include="img\home\hero\parallax\desktop.ini" />
+    <Content Include="img\home\home-screens\desktop.ini" />
+    <Content Include="img\home\image-tabs\desktop.ini" />
+    <Content Include="img\home\landing-tabs\desktop.ini" />
+    <Content Include="img\home\pages\desktop.ini" />
+    <Content Include="img\home\partial-view-slider\desktop.ini" />
+    <Content Include="img\home\service-thumbs\desktop.ini" />
+    <Content Include="img\home\shop-categories\desktop.ini" />
+    <Content Include="img\home\shop-featured-tabs\desktop.ini" />
+    <Content Include="img\home\shop-screens\desktop.ini" />
+    <Content Include="img\home\shop-showcase-slider\desktop.ini" />
+    <Content Include="img\info-tiles\039be5\desktop.ini" />
+    <Content Include="img\info-tiles\448956\desktop.ini" />
+    <Content Include="img\info-tiles\607d8b\desktop.ini" />
+    <Content Include="img\info-tiles\9456ba\desktop.ini" />
+    <Content Include="img\info-tiles\desktop.ini" />
+    <Content Include="img\info-tiles\e74c3c\desktop.ini" />
+    <Content Include="img\info-tiles\ff712c\desktop.ini" />
+    <Content Include="img\logos\desktop.ini" />
+    <Content Include="img\megamenu\bonus\desktop.ini" />
+    <Content Include="img\megamenu\desktop.ini" />
+    <Content Include="img\ms-display\desktop.ini" />
+    <Content Include="img\pages\desktop.ini" />
+    <Content Include="img\patterns\desktop.ini" />
+    <Content Include="img\portfolio\desktop.ini" />
+    <Content Include="img\shop\cart\desktop.ini" />
+    <Content Include="img\shop\catalog\colors\desktop.ini" />
+    <Content Include="img\shop\catalog\desktop.ini" />
+    <Content Include="img\shop\desktop.ini" />
+    <Content Include="img\shop\history\desktop.ini" />
+    <Content Include="img\shop\packages\desktop.ini" />
+    <Content Include="img\shop\sidebar\desktop.ini" />
+    <Content Include="img\shop\single\desktop.ini" />
+    <Content Include="img\shop\tracking\desktop.ini" />
+    <Content Include="img\specialty-page\desktop.ini" />
+    <Content Include="img\team\desktop.ini" />
+    <Content Include="img\user\desktop.ini" />
+    <Content Include="js\desktop.ini" />
+    <Content Include="js\libs\desktop.ini" />
+    <Content Include="js\plugins\desktop.ini" />
+    <Content Include="less\animations\animate.less" />
+    <Content Include="less\animations\desktop.ini" />
+    <Content Include="less\blog.less" />
+    <Content Include="less\bootstrap\badges.less" />
+    <Content Include="less\bootstrap\bootstrap.less" />
+    <Content Include="less\bootstrap\breadcrumbs.less" />
+    <Content Include="less\bootstrap\button-groups.less" />
+    <Content Include="less\bootstrap\buttons.less" />
+    <Content Include="less\bootstrap\close.less" />
+    <Content Include="less\bootstrap\code.less" />
+    <Content Include="less\bootstrap\component-animations.less" />
+    <Content Include="less\bootstrap\desktop.ini" />
+    <Content Include="less\bootstrap\forms.less" />
+    <Content Include="less\bootstrap\grid.less" />
+    <Content Include="less\bootstrap\input-groups.less" />
+    <Content Include="less\bootstrap\labels.less" />
+    <Content Include="less\bootstrap\list-group.less" />
+    <Content Include="less\bootstrap\media.less" />
+    <Content Include="less\bootstrap\mixins.less" />
+    <Content Include="less\bootstrap\mixins\background-variant.less" />
+    <Content Include="less\bootstrap\mixins\border-radius.less" />
+    <Content Include="less\bootstrap\mixins\buttons.less" />
+    <Content Include="less\bootstrap\mixins\center-block.less" />
+    <Content Include="less\bootstrap\mixins\clearfix.less" />
+    <Content Include="less\bootstrap\mixins\desktop.ini" />
+    <Content Include="less\bootstrap\mixins\forms.less" />
+    <Content Include="less\bootstrap\mixins\gradients.less" />
+    <Content Include="less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="less\bootstrap\mixins\grid.less" />
+    <Content Include="less\bootstrap\mixins\hide-text.less" />
+    <Content Include="less\bootstrap\mixins\image.less" />
+    <Content Include="less\bootstrap\mixins\labels.less" />
+    <Content Include="less\bootstrap\mixins\list-group.less" />
+    <Content Include="less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="less\bootstrap\mixins\opacity.less" />
+    <Content Include="less\bootstrap\mixins\pagination.less" />
+    <Content Include="less\bootstrap\mixins\panels.less" />
+    <Content Include="less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="less\bootstrap\mixins\resize.less" />
+    <Content Include="less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="less\bootstrap\mixins\size.less" />
+    <Content Include="less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="less\bootstrap\mixins\table-row.less" />
+    <Content Include="less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="less\bootstrap\modals.less" />
+    <Content Include="less\bootstrap\navbar.less" />
+    <Content Include="less\bootstrap\navs.less" />
+    <Content Include="less\bootstrap\normalize.less" />
+    <Content Include="less\bootstrap\pagination.less" />
+    <Content Include="less\bootstrap\panels.less" />
+    <Content Include="less\bootstrap\popovers.less" />
+    <Content Include="less\bootstrap\progress-bars.less" />
+    <Content Include="less\bootstrap\responsive-embed.less" />
+    <Content Include="less\bootstrap\responsive-utilities.less" />
+    <Content Include="less\bootstrap\scaffolding.less" />
+    <Content Include="less\bootstrap\tables.less" />
+    <Content Include="less\bootstrap\thumbnails.less" />
+    <Content Include="less\bootstrap\tooltip.less" />
+    <Content Include="less\bootstrap\type.less" />
+    <Content Include="less\bootstrap\utilities.less" />
+    <Content Include="less\bootstrap\variables.less" />
+    <Content Include="less\buttons.less" />
+    <Content Include="less\card\card.less" />
+    <Content Include="less\card\desktop.ini" />
+    <Content Include="less\colors\color.less" />
+    <Content Include="less\colors\desktop.ini" />
+    <Content Include="less\desktop.ini" />
+    <Content Include="less\font-awesome\bordered-pulled.less" />
+    <Content Include="less\font-awesome\core.less" />
+    <Content Include="less\font-awesome\desktop.ini" />
+    <Content Include="less\font-awesome\fixed-width.less" />
+    <Content Include="less\font-awesome\font-awesome.less" />
+    <Content Include="less\font-awesome\icons.less" />
+    <Content Include="less\font-awesome\larger.less" />
+    <Content Include="less\font-awesome\list.less" />
+    <Content Include="less\font-awesome\mixins.less" />
+    <Content Include="less\font-awesome\path.less" />
+    <Content Include="less\font-awesome\rotated-flipped.less" />
+    <Content Include="less\font-awesome\spinning.less" />
+    <Content Include="less\font-awesome\stacked.less" />
+    <Content Include="less\font-awesome\variables.less" />
+    <Content Include="less\footer.less" />
+    <Content Include="less\forms.less" />
+    <Content Include="less\header.less" />
+    <Content Include="less\home.less" />
+    <Content Include="less\icons\desktop.ini" />
+    <Content Include="less\icons\flaticon.less" />
+    <Content Include="less\ihover\desktop.ini" />
+    <Content Include="less\ihover\ihover.less" />
+    <Content Include="less\lightgallery\desktop.ini" />
+    <Content Include="less\lightgallery\lightgallery.less" />
+    <Content Include="less\mixins.less" />
+    <Content Include="less\modals.less" />
+    <Content Include="less\navi.less" />
+    <Content Include="less\pages.less" />
+    <Content Include="less\prepros.cfg" />
+    <Content Include="less\scaffolding.less" />
+    <Content Include="less\shop.less" />
+    <Content Include="less\sidebar.less" />
+    <Content Include="less\styles.less" />
+    <Content Include="less\type.less" />
+    <Content Include="less\variables.less" />
+    <Content Include="less\widgets.less" />
+    <Content Include="masterslider\desktop.ini" />
+    <Content Include="masterslider\skins\black-1\desktop.ini" />
+    <Content Include="masterslider\skins\black-2\desktop.ini" />
+    <Content Include="masterslider\skins\contrast\desktop.ini" />
+    <Content Include="masterslider\skins\default\desktop.ini" />
+    <Content Include="masterslider\skins\desktop.ini" />
+    <Content Include="masterslider\skins\light-2\desktop.ini" />
+    <Content Include="masterslider\skins\light-3\desktop.ini" />
+    <Content Include="masterslider\skins\light-4\desktop.ini" />
+    <Content Include="masterslider\skins\light-5\desktop.ini" />
+    <Content Include="masterslider\skins\light-6\desktop.ini" />
+    <Content Include="masterslider\skins\metro\desktop.ini" />
+    <Content Include="masterslider\style\desktop.ini" />
+    <Content Include="fonts\desktop.ini" />
+    <Content Include="fonts\flaticon.eot" />
+    <Content Include="fonts\flaticon.ttf" />
+    <Content Include="fonts\flaticon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\home-startup.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52936</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://tspn.dev</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://tspn.dev</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
